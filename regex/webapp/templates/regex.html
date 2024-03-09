@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+    <style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+	    min-height: 100vh;
+            background: linear-gradient(#191970, #87CEEB);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 150px auto 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+	
+	label {
+            margin-bottom: 10px; 
+            display: inline-block;
+        }
+
+        input[type="text"]{
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 2px solid #bfbfbf;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+    	    width: 40%;
+    	    padding: 12px; 
+    	    background-color: #22228a;
+    	    color: white;
+    	    border: none;
+    	    cursor: pointer;
+ 	    border-radius: 4px;
+	    font-size: 18px;
+    	    transition: background-color 0.3s;
+}
+
+        input[type="submit"]:hover {
+            background-color: #1748cf;
+         }
+
+
+        .warning {
+            color: #ff0000;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Regex Matcher</h2>
+        <form id="regexForm" action="/results" method="post" onsubmit="return validateForm()">
+            <label for="test_string">Test String:</label><br>
+            <input type="text" id="test_string" name="test_string" placeholder="Enter Test String"><br>
+            <label for="regex_pattern">Regex Pattern:</label><br>
+            <input type="text" id="regex_pattern" name="regex_pattern" placeholder="Enter Regex Pattern"><br>
+            <input type="submit" value="Submit">
+            <div id="regexFormWarning" class="warning"></div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var testString = document.getElementById("test_string").value.trim();
+            var regexPattern = document.getElementById("regex_pattern").value.trim();
+
+            if (testString === '' || regexPattern === '') {
+                var warningElement = document.getElementById("regexFormWarning");
+                warningElement.textContent = 'Please fill in all fields.';
+                return false; 
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>

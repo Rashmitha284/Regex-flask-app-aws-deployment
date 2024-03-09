@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Email Validation in JavaScript | CodingLab</title>
+  <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <form id="emailForm" action="#">
+    <h2 style="text-align: center; margin-bottom: 20px;">Email Validation</h2>
+    <div class="input-box">
+      <input class="input" type="text" placeholder="Enter your email" id="emailInput">
+      <i class="fas fa-envelope email-icon"></i>
+      <i class="fas fa-exclamation-circle error-icon"></i>
+      <i class="fas fa-check-circle passed-icon"></i>
+    </div>
+	<p class="text"></p>
+    <div class="buttons-container">
+      <input class="button check" type="button" value="Check" id="checkButton">
+      <input class="button reset" type="button" value="Reset" id="resetButton">
+    </div>
+  </form>
+  <script>
+    const form = document.getElementById("emailForm");
+    const eInput = document.getElementById("emailInput");
+    const checkButton = document.getElementById("checkButton");
+    const resetButton = document.getElementById("resetButton");
+    const text = form.querySelector(".text");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      form.classList.add("error");
+      form.classList.remove("valid");
+      if (eInput.value == "") {
+        text.innerText = "Email can't be blank";
+      } else if (!eInput.value.match(pattern)) {
+        text.innerText = "Please enter a valid email";
+      } else {
+        form.classList.replace("error", "valid");
+        text.innerText = "This is a valid email";
+      }
+    });
+
+    checkButton.addEventListener("click", function() {
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      form.classList.add("error");
+      form.classList.remove("valid");
+      if (eInput.value == "") {
+        text.innerText = "Email can't be blank";
+      } else if (!eInput.value.match(pattern)) {
+        text.innerText = "Please enter a valid email";
+      } else {
+        form.classList.replace("error", "valid");
+        text.innerText = "This is a valid email";
+      }
+    });
+
+    resetButton.addEventListener("click", function() {
+      form.classList.remove("error", "valid");
+      text.innerText = "";
+      eInput.value = "";
+    });
+  </script>
+</body>
+
+</html>

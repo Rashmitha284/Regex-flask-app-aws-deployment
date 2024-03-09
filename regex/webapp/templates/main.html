@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Home Page</title>
+   <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #27282c;
+        flex-direction: column;
+        gap: 50px;
+        background-image: url("static/img/main.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      a {
+        position: relative;
+        background: #fff;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        font-weight: 400;
+        padding: 10px 30px;
+        transition: 0.5s;
+	margin-bottom: 25px;
+      }
+      a:hover {
+        background: var(--clr);
+        color: var(--clr);
+        letter-spacing: 0.25em;
+        box-shadow: 0 0 35px var(--clr);
+      }
+      a:before {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background: #27282c;
+      }
+      a span {
+        position: relative;
+        z-index: 1;
+      }
+      a i {
+        position: absolute;
+        inset: 0;
+        display: block;
+      }
+      a i::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 80%;
+        width: 12px;
+        height: 6px;
+        background: #27282c;
+        transform: translateX(-50%) skewX(325deg);
+        transition: 0.5s;
+      }
+      a:hover i::before {
+        width: 20px;
+        left: 20%;
+      }
+      a i::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 80%;
+        width: 12px;
+        height: 6px;
+        background: #27282c;
+        transform: translateX(-50%) skewX(325deg);
+        transition: 0.5s;
+      }
+      a:hover i::after {
+        width: 20px;
+        left: 20%;
+      }
+   </style>
+</head>
+<body>
+   <a href="/regex_matcher" style="--clr:#9ef4f8"><span>REGEX MATCHER</span><i></i></a>
+   <a href="/validate_email" style="--clr:#f1ccf2"><span>EMAIL VALIDATOR</span><i></i></a>
+</body>
+</html>
